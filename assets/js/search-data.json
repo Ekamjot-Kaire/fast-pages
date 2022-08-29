@@ -71,6 +71,17 @@
   
 
   
+      ,"page2": {
+          "title": "About Me",
+          "content": "CSP NOTES: . Week 2: . Week 3: . Week 4: . Week 5: .",
+          "url": "https://ekamjot-kaire.github.io/fast-pages/about/",
+          "relUrl": "/about/",
+          "date": ""
+      }
+      
+  
+
+  
 
   
   
@@ -92,7 +103,7 @@
   
 
   
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://ekamjot-kaire.github.io/fast-pages/robots.txt",
