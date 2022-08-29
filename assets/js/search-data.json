@@ -24,6 +24,17 @@
   
     
         ,"post2": {
+            "title": "Happiness Essay   A Example",
+            "content": "Student . Mrs. Paulson . HSE 3: Period 3 . 28 September 2021 . How Happiness Happens . The word “happy” is such a simple word, yet people spend their life yearning for this feeling. The documentary Happy, utilizes several stories from some of the most happy people on the planet. Even though most of the people in the film aren’t the most wealthy, they are still shown being content with their life’s. Spending time with loved ones and being in nature are two of the most important contributing factors to happiness. . Many of the people in the film were usually surrounded by loved ones, usually contributing to their high levels of happiness. Manoj Singh, a rickshaw driver in the heart of India, shows how he is continuously happy. Surprisingly, Singh is very content with his life, even though he doesn’t have the most glamorous home or job he still manages to find happiness in his life. The reason Singh is so upbeat is that he is surrounded by loved ones. Singh has the opportunity to be close with his immediate family, but also have a strong personal connection with the other people living in his village. It is important to be surrounded by loved ones because Singh looks forward to returning from his strenuous labor. Just like Singh, I am also lucky to be able to connect and constantly be around the people I love. Even though high school can be very tough and challenging, I still find myself waking up in the morning excited to go to school; not due to the algebra quiz after lunch, but because I have numerous friends that are willing to take on the high school challenges with me. My friends and family can bring me up if I am experiencing a rough day, for example when I was studying for finals this past semester, my parents helped me by quizzing me on my long list of vocab for my AP European History class. These small gestures of love are why having a great support group around you can really make you feel special and worth something. . The place where you live or frequently go can also create happiness. From the film Happy, Roy Blanchard Sr. showed what made him calm and comfortable. Blanchard lived in the bayou in Louisiana and usually made daily boat trips around the swampy waters. He also fished and harvested crabs from his traps, and showed his passion for living off the land around him. Blanchard shared his catch with his relatives and friends for weekly cookouts, which made for many unforgettable moments for Blanchard and his family. I too find tranquility in nature because I enjoy camping in the Rocky Mountains during the summer. In Colorado we are so lucky to have the mountains to our west as our own personal playground. I find happiness in camping in the wilderness because it relieves me of any stresses or burdens I may be carrying. Exploring outdoors is such a unique experience because there is always something new to be discovered. Finding happiness can seem like an endless mountain, and that the peak will never be found, however there are many methods and changes we can make to our lives to make us more content with the beautiful world we live in. .",
+            "url": "https://ekamjot-kaire.github.io/fast-pages/2022/08/28/Happiness-Essay-A-Example.html",
+            "relUrl": "/2022/08/28/Happiness-Essay-A-Example.html",
+            "date": " • Aug 28, 2022"
+        }
+        
+    
+  
+    
+        ,"post3": {
             "title": "Python Usage",
             "content": "print(&quot;hello world&quot;) . hello world .",
             "url": "https://ekamjot-kaire.github.io/fast-pages/2022/08/24/python-notebook-test.html",
@@ -34,7 +45,7 @@
     
   
     
-        ,"post3": {
+        ,"post4": {
             "title": "First Markdown Post",
             "content": "Markdown . This is my first post .",
             "url": "https://ekamjot-kaire.github.io/fast-pages/markdown/2022/08/23/first-post.html",
@@ -45,7 +56,7 @@
     
   
     
-        ,"post4": {
+        ,"post5": {
             "title": "CSP Notes",
             "content": "CSP Notes . Week 0: . cd : root directory | ls: lists files | . Week 1: . print(“hello”) prints texts | def: is sued to define a function | .",
             "url": "https://ekamjot-kaire.github.io/fast-pages/markdown/2022/08/23/CSPNotes.html",
@@ -56,7 +67,7 @@
     
   
     
-        ,"post5": {
+        ,"post6": {
             "title": "An Example Markdown Post",
             "content": "Example Markdown Post . Basic setup . Jekyll requires blog post files to be named according to the following format: . YEAR-MONTH-DAY-filename.md . Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and filename is whatever file name you choose, to remind yourself what this post is about. .md is the file extension for markdown files. . The first line of the file should start with a single hash character, then a space, then your title. This is how you create a “level 1 heading” in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line ## File names above. . Basic formatting . You can use italics, bold, code font text, and create links. Here’s a footnote 1. Here’s a horizontal rule: . . Lists . Here’s a list: . item 1 | item 2 | . And a numbered list: . item 1 | item 2 | Boxes and stuff . This is a quotation . . You can include alert boxes …and… . . You can include info boxes Images . . Code . You can format text and code per usual . General preformatted text: . # Do a thing do_thing() . Python code and output: . # Prints &#39;2&#39; print(1+1) . 2 . Formatting text as shell commands: . echo &quot;hello world&quot; ./some_script.sh --option &quot;value&quot; wget https://example.com/cat_photo1.png . Formatting text as YAML: . key: value - another_key: &quot;another value&quot; . Tables . Column 1 Column 2 . A thing | Another thing | . Tweetcards . Altair 4.0 is released! https://t.co/PCyrIOTcvvTry it with: pip install -U altairThe full list of changes is at https://t.co/roXmzcsT58 ...read on for some highlights. pic.twitter.com/vWJ0ZveKbZ . &mdash; Jake VanderPlas (@jakevdp) December 11, 2019 Footnotes . This is the footnote. &#8617; . |",
             "url": "https://ekamjot-kaire.github.io/fast-pages/markdown/2020/01/14/test-markdown-post.html",
