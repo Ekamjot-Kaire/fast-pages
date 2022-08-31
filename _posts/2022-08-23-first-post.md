@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-categories: [markdown]
+categories: [Week 0]
 title: First Markdown Post
 ---
 
