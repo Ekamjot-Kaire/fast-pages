@@ -27,8 +27,8 @@ Person B: Ekam
   "What animal is on your partner's screen?"
   
   
-2. Person A has the cover of the song "I Love It" by Icona Pop
-   Person B has the cover of the song "Royals" Lorde 
+2. Person A has the cover of the song "Royals" by Lorde
+   Person B has the cover of the song "I Love It" by Icona Pop 
    
    "What song is shown on on your partner's screen?"
    
