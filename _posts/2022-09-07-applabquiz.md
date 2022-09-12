@@ -36,3 +36,44 @@ Person B: Ekam
    Person B has an image of differently colored circles
    
    "What is the color of the largest circle on your partner's screen?"
+   
+   
+ # General Quiz Plan: 
+ 
+ 1. Introduction screen (screen 2): 
+ 
+   Has a button to start the quiz:
+   uses onEvent to set the screen to the next page 
+   
+ 2. Instructions: lists special instructions (since this is a partner quiz) 
+ 
+   Has another button with onEvent to set screen to first question 
+   
+ 3. Question 1: 
+ 
+   Three buttons with possible answers. Incorrect Answers lead you to page 6 ("incorrect" screen). Correct answers lead you to page 8 ("correct" screen)
+   
+ 4. Question 2: Same mechanic as question 1 
+   
+ 5. Question 3: Same mechanic as question 1, except correct question takes you to completion page
+
+ 6. Incorrect Page: has a statement that tells the player they answered wrong and a button that takes you back to the introduction screen to start over (later changed)
+
+ 7. Completion Page: tells the player they finished the quiz
+
+ 8. Correct Page: lets the player know they answered correct, and are moving on to the next question. It has a button that takes you you to the next question
+
+
+# Changes Made: 
+
+- Orininally the incorrect page took you to the starting page and the player had to start the quiz over. Then I changed the code by adding adding an on event within the on event of an incorrect question so that the player was taken back to the question they got incorrect
+- The original code had a seperate correct page for each question. However eventually I managed to make it so that the same correct page takes the player to the next question. 
+
+
+# The Final Quiz: https://studio.code.org/projects/applab/eGfXM6EyaxOBkUNorqCV1fBnQ0RoFWBOIEejLpPTXS0
+
+
+ 
+ 
+ 
+   
