@@ -70,7 +70,13 @@ Person B: Ekam
 - The original code had a seperate correct page for each question. However eventually I managed to make it so that the same correct page takes the player to the next question. 
 
 
-# The Final Quiz: https://studio.code.org/projects/applab/eGfXM6EyaxOBkUNorqCV1fBnQ0RoFWBOIEejLpPTXS0
+# The Final Quiz: 
+
+My Quiz: 
+https://studio.code.org/projects/applab/eGfXM6EyaxOBkUNorqCV1fBnQ0RoFWBOIEejLpPTXS0
+
+Ishi's Quiz: 
+https://studio.code.org/projects/applab/qQPEbjk6FhWvgxYMfkktJ0Jn5oBlid4l_6eo912qYC0
 
 
  
