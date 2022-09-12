@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -99,6 +99,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#app-lab-quiz-outline">App Lab Quiz Outline</a></li>
 <li class="toc-entry toc-h1"><a href="#introduction-page">Introduction Page</a></li>
 <li class="toc-entry toc-h1"><a href="#questions">Questions:</a></li>
+<li class="toc-entry toc-h1"><a href="#changes-made">Changes Made:</a></li>
+<li class="toc-entry toc-h1"><a href="#the-final-quiz-httpsstudiocodeorgprojectsapplabegfxm6eyaxobkunorqcv1fbnq0rofwboieejlpptxs0">The Final Quiz: https://studio.code.org/projects/applab/eGfXM6EyaxOBkUNorqCV1fBnQ0RoFWBOIEejLpPTXS0</a></li>
 </ul><h1 id="app-lab-quiz-outline">
 <a class="anchor" href="#app-lab-quiz-outline" aria-hidden="true"><span class="octicon octicon-link"></span></a>App Lab Quiz Outline</h1>
 
@@ -141,6 +143,57 @@ Person B has an image of differently colored circles</p>
     <p>“What is the color of the largest circle on your partner’s screen?”</p>
   </li>
 </ol>
+
+<p># General Quiz Plan:</p>
+
+<ol>
+  <li>Introduction screen (screen 2):</li>
+</ol>
+
+<p>Has a button to start the quiz:
+   uses onEvent to set the screen to the next page</p>
+
+<ol>
+  <li>Instructions: lists special instructions (since this is a partner quiz)</li>
+</ol>
+
+<p>Has another button with onEvent to set screen to first question</p>
+
+<ol>
+  <li>Question 1:</li>
+</ol>
+
+<p>Three buttons with possible answers. Incorrect Answers lead you to page 6 (“incorrect” screen). Correct answers lead you to page 8 (“correct” screen)</p>
+
+<ol>
+  <li>
+    <p>Question 2: Same mechanic as question 1</p>
+  </li>
+  <li>
+    <p>Question 3: Same mechanic as question 1, except correct question takes you to completion page</p>
+  </li>
+  <li>
+    <p>Incorrect Page: has a statement that tells the player they answered wrong and a button that takes you back to the introduction screen to start over (later changed)</p>
+  </li>
+  <li>
+    <p>Completion Page: tells the player they finished the quiz</p>
+  </li>
+  <li>
+    <p>Correct Page: lets the player know they answered correct, and are moving on to the next question. It has a button that takes you you to the next question</p>
+  </li>
+</ol>
+
+<h1 id="changes-made">
+<a class="anchor" href="#changes-made" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changes Made:</h1>
+
+<ul>
+  <li>Orininally the incorrect page took you to the starting page and the player had to start the quiz over. Then I changed the code by adding adding an on event within the on event of an incorrect question so that the player was taken back to the question they got incorrect</li>
+  <li>The original code had a seperate correct page for each question. However eventually I managed to make it so that the same correct page takes the player to the next question.</li>
+</ul>
+
+<h1 id="the-final-quiz-httpsstudiocodeorgprojectsapplabegfxm6eyaxobkunorqcv1fbnq0rofwboieejlpptxs0">
+<a class="anchor" href="#the-final-quiz-httpsstudiocodeorgprojectsapplabegfxm6eyaxobkunorqcv1fbnq0rofwboieejlpptxs0" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Final Quiz: https://studio.code.org/projects/applab/eGfXM6EyaxOBkUNorqCV1fBnQ0RoFWBOIEejLpPTXS0</h1>
+
 
   </div><a class="u-url" href="/fast-pages/markdown/2022/09/07/applabquiz.html" hidden></a>
 </article>
