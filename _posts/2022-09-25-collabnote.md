@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-categories: [Week 4]
+categories:
 title: Unit 1.1: Collaboration
 ---
 
