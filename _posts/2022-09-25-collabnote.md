@@ -1,7 +1,6 @@
 ---
 toc: true
 layout: post
-categories:
 title: Unit 1.1: Collaboration
 ---
 
@@ -21,10 +20,10 @@ Super Mario Bros 2 vs 3 example:
 - removes bias and provides more opinions
 
 Skills learned through collaboration:
-1) Communication
-2) Consensus building
-3) Conflict Resolution
-4) Negotiation
+- Communication
+- Consensus building
+- Conflict Resolution
+- Negotiation
 
 # Video 2: 
 
@@ -33,9 +32,9 @@ Pair Programming:
 - observer: reviews code as its being written (don't be pushy and let the driver figure things out)
 
 Think-Pair-Share:
-1) Think through the problem by yourself
-2) Pair up and share ideas to fix the problem
-3) Share with the class
+- Think through the problem by yourself
+- Pair up and share ideas to fix the problem
+- Share with the class
 
 Comments:
 - Leave comments in your code to communicate with your partner
