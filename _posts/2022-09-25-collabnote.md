@@ -12,7 +12,6 @@ title: Unit 1.1: Collaboration
 Computing Innovation: 
 - includes a program
 - physical computing innovations (self-driving car)
-- nonphysical computing software (picture editing software, art software, etc)
 - nonphysical computing concept (e-commerce)
 
 Super Mario Bros 2 vs 3 example: 
