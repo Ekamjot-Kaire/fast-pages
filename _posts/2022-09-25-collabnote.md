@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-title: Unit 1.1: Collaboration
+title: Unit 1.1 - Collaboration
 ---
 
 # Video 1:
