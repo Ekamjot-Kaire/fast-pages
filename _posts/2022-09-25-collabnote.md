@@ -11,7 +11,7 @@ title: Unit 1.1: Collaboration
 - Working together brings new perspectives on a project 
 
 Computing Innovation: 
---> includes a program
+- includes a program
 
 - physical computing innovations (self-driving car)
 - nonphysical computing software (picture editing software, art software, etc)
@@ -30,8 +30,8 @@ Skills learned through collaboration:
 # Video 2: 
 
 Pair Programming: 
---> driver: writes code
---> observer: reviews code as its being written (don't be pushy and let the driver figure things out)
+- driver: writes code
+- observer: reviews code as its being written (don't be pushy and let the driver figure things out)
 
 Think-Pair-Share:
 1) Think through the problem by yourself
