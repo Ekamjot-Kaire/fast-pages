@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -91,6 +91,7 @@ window.onload = wrap_img;
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#video-1">Video 1</a></li>
 <li class="toc-entry toc-h1"><a href="#video-2">Video 2</a></li>
+<li class="toc-entry toc-h1"><a href="#video-3">Video 3:</a></li>
 </ul><h1 id="video-1">
 <a class="anchor" href="#video-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video 1</h1>
 
@@ -130,6 +131,95 @@ window.onload = wrap_img;
 
 <h1 id="video-2">
 <a class="anchor" href="#video-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video 2</h1>
+
+<ul>
+  <li>input: data sent to a computer to be processed by a program</li>
+  <li>event: an action that gives input data to a program – can be generated when a key is pressed, a button is clicked, a program is started, etc</li>
+  <li>inputs (usually) affects the output of program</li>
+  <li>output is data sent from a program to a device</li>
+</ul>
+
+<p>types of inputs:</p>
+<ul>
+  <li>tactile (touch)</li>
+  <li>audio</li>
+  <li>visual</li>
+  <li>text (including numbers)</li>
+</ul>
+
+<p>example: smart phone/tablet:</p>
+<ul>
+  <li>touch screen: tactile – how you touch, where you touch, movements</li>
+  <li>physical buttons</li>
+  <li>audio: you can say things to your phone</li>
+  <li>visual: facial recognition</li>
+</ul>
+
+<p>how do programs receive input?:</p>
+<ul>
+  <li>programs are written in an event driven program</li>
+  <li>events are triggered by actions, and these actions usually send input to program</li>
+  <li>different types of “events” a user can trigger: button click, taps/swiping, keyboard entries, audio triggers</li>
+</ul>
+
+<p>input might not always affect output: if a phone is off clicking a button does nothing. You have to follow the correct sequence of events</p>
+
+<p>types of outputs produced by device:</p>
+<ul>
+  <li>visual</li>
+  <li>audio</li>
+  <li>text</li>
+</ul>
+
+<p>how does a program know what to do when an event takes place?:</p>
+<ul>
+  <li>actions done by the user or another program can trigger events</li>
+  <li>program “jumps” to code segment related to specific events – code segment is executed and output is given</li>
+  <li>program is not necessarily executed in order that the lines are written in</li>
+</ul>
+
+<h1 id="video-3">
+<a class="anchor" href="#video-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video 3:</h1>
+
+<p>what is a program (also called software)?
+a program is a collection of statements:</p>
+
+<p>statement: a single command 
+code segment: group of statements – these statements are executed according to program rules</p>
+
+<p>example:</p>
+
+<p>min &lt;– alist[1]
+for EACH item in alist
+{
+    IF (item &lt; min)
+    {
+        min &lt;– item
+    }
+}
+DISPLAY (“The minimum number in the list is”)
+DISPLAY min</p>
+
+<p>explanation: The code starts at item 1 in alist and assigns it to min. Then, for each number in the list after 1, if the number is less than min, it assigns the new number as min. At the end it prints the min #</p>
+
+<p>what does this program do?</p>
+<ul>
+  <li>finds the minimum value in the list</li>
+</ul>
+
+<p>looking at the purpose, we have to find potential issues:</p>
+<ul>
+  <li>program would need to work for lists with #s out of order</li>
+  <li>what about negative numbers (should it take them into account?)</li>
+  <li>very large numbers; some languages might not allow large #s</li>
+  <li>decimals; some languages store decimals as a different type (not int)</li>
+</ul>
+
+<p>when describing code segment:</p>
+<ul>
+  <li>explain what it does so that others can insert it into larger programs</li>
+  <li>you could include how it does what it does (somebody might want to expand on it)</li>
+</ul>
 
 
   </div><a class="u-url" href="/fast-pages/2022/09/27/1.2notes.html" hidden></a>
