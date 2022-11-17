@@ -4,9 +4,9 @@
         "post0": {
             "title": "JavaScript Notes",
             "content": "Function: console.log(): . string can be added into the brackets | the function outputs a message to the web console | only a single string can be inputted into function | . console.log(&quot;hello!&quot;) . hello! . Setting a variable: . &quot;var msg = &quot; captures data of the string (variable of string) | console.log shows output | . //defining variable var msg = &quot;example message&quot;; //logging message console.log(msg) . example message . Defining functions: . the following code has two steps: defining the function and calling the function | . //defining function function logIt(output) { console.log(output); } //calling function logIt(msg); . example message . JavaScript as a Dynamic (loosely typed) language: . dynamic/loosely typed means you don&#39;t have to specify what type of information will be stored in a variable beforehand | the variable type is determined while the code is running, which is similar to Python | . //string: console.log(&quot;hello&quot;) //number: console.log(22) //generic object: array (similar to python list) console.log([1,2,3]) . hello 22 [ 1, 2, 3 ] .",
-            "url": "https://ekamjot-kaire.github.io/fast-pages/2022/11/15/javascriptusage.html",
-            "relUrl": "/2022/11/15/javascriptusage.html",
-            "date": " • Nov 15, 2022"
+            "url": "https://ekamjot-kaire.github.io/fast-pages/2022/11/16/javascriptusage.html",
+            "relUrl": "/2022/11/16/javascriptusage.html",
+            "date": " • Nov 16, 2022"
         }
         
     
