@@ -28,4 +28,5 @@ Overall Plan:
 3) Send a notebook and have everyone test changing steps of a procedure themselves
 
 Ideas for Hacks: 
-- Create a flowchart to demonstrate changes (?)
+- Create a flowchart to demonstrate changes to variables (?)
+- Tie in with Sreeja's hack of creating flowchart for an algorithm, and have a table with changes...
