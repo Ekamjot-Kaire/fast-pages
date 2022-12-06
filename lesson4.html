@@ -129,15 +129,21 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#HW-Iteration">HW Iteration </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h1"><a href="#HW-Assignment-Pt-1:">HW Assignment Pt 1: </a></li>
 <li class="toc-entry toc-h1"><a href="#2D-Iteration">2D Iteration </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#2D-Arrays">2D Arrays </a></li>
 <li class="toc-entry toc-h2"><a href="#Printing-a-2D-Array">Printing a 2D Array </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#More-Functions">More Functions </a></li>
-<li class="toc-entry toc-h3"><a href="#Challenge">Challenge </a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#HW-Assignment-Pt-2:">HW Assignment Pt 2: </a></li>
+<li class="toc-entry toc-h1"><a href="#HW-Assignment-Pt-3:">HW Assignment Pt 3: </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Challenge">Challenge </a></li>
 </ul>
 </li>
 </ul><!--
@@ -230,7 +236,7 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [2]</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [63]</span>
 <span class="ansi-red-fg">    const fruits = ["apple", "grape", "strawberry"];</span>
           ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -918,6 +924,15 @@ tango</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="HW-Assignment-Pt-1:">
+<a class="anchor" href="#HW-Assignment-Pt-1:" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW Assignment Pt 1:<a class="anchor-link" href="#HW-Assignment-Pt-1:"> </a>
+</h1>
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -928,11 +943,18 @@ tango</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"alfa"</span><span class="p">,</span> <span class="s2">"bravo"</span><span class="p">,</span> <span class="s2">"charlie"</span><span class="p">,</span> <span class="s2">"delta"</span><span class="p">,</span> <span class="s2">"echo"</span><span class="p">,</span> <span class="s2">"foxtrot"</span><span class="p">,</span> <span class="s2">"golf"</span><span class="p">,</span> <span class="s2">"hotel"</span><span class="p">,</span> <span class="s2">"india"</span><span class="p">,</span> <span class="s2">"juliett"</span><span class="p">,</span> <span class="s2">"kilo"</span><span class="p">,</span>
 <span class="s2">"lima"</span><span class="p">,</span> <span class="s2">"mike"</span><span class="p">,</span> <span class="s2">"november"</span><span class="p">,</span> <span class="s2">"oscar"</span><span class="p">,</span> <span class="s2">"papa"</span><span class="p">,</span> <span class="s2">"quebec"</span><span class="p">,</span> <span class="s2">"romeo"</span><span class="p">,</span> <span class="s2">"sierra"</span><span class="p">,</span> <span class="s2">"tango"</span><span class="p">,</span> <span class="s2">"uniform"</span><span class="p">,</span> <span class="s2">"victor"</span><span class="p">,</span> <span class="s2">"whiskey"</span><span class="p">,</span> <span class="s2">"xray"</span><span class="p">,</span> <span class="s2">"yankee"</span><span class="p">,</span> <span class="s2">"zulu"</span><span class="p">]</span>
 
-<span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="s2">":"</span><span class="p">)</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"your word:"</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"the NATO code:"</span><span class="p">)</span>
 <span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">inp</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">nato</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">nato</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">nato</span><span class="p">)</span>
+    
+
 
 
     
@@ -948,26 +970,15 @@ tango</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>bob :
-['b', 'o', 'b']
+<pre>your word: green
+
+the NATO code:
+golf
+romeo
+echo
+echo
+november
 </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">/Users/ekamjotkaire/csp/fast-pages/_notebooks/2022-12-05-lesson4.ipynb Cell 34</span> in <span class="ansi-cyan-fg">&lt;cell line: 9&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell:/Users/ekamjotkaire/csp/fast-pages/_notebooks/2022-12-05-lesson4.ipynb#X44sZmlsZQ%3D%3D?line=6'&gt;7&lt;/a&gt;</span> letters = list(inp)
-<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell:/Users/ekamjotkaire/csp/fast-pages/_notebooks/2022-12-05-lesson4.ipynb#X44sZmlsZQ%3D%3D?line=7'&gt;8&lt;/a&gt;</span> print(letters)
-<span class="ansi-green-fg">----&gt; &lt;a href='vscode-notebook-cell:/Users/ekamjotkaire/csp/fast-pages/_notebooks/2022-12-05-lesson4.ipynb#X44sZmlsZQ%3D%3D?line=8'&gt;9&lt;/a&gt;</span> print(range(letters))
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell:/Users/ekamjotkaire/csp/fast-pages/_notebooks/2022-12-05-lesson4.ipynb#X44sZmlsZQ%3D%3D?line=9'&gt;10&lt;/a&gt;</span> for x in words:
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell:/Users/ekamjotkaire/csp/fast-pages/_notebooks/2022-12-05-lesson4.ipynb#X44sZmlsZQ%3D%3D?line=10'&gt;11&lt;/a&gt;</span>     if x == n:
-
-<span class="ansi-red-fg">TypeError</span>: 'list' object cannot be interpreted as an integer</pre>
 </div>
 </div>
 
@@ -1209,14 +1220,13 @@ apples bananas grapes
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>the * changes all the indices of the list into strings</p>
+<p><b> NOTE: the * changes all the indices of the list into strings&lt;/p&gt;
 
-</div>
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1243,6 +1253,15 @@ apples bananas grapes
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="HW-Assignment-Pt-2:">
+<a class="anchor" href="#HW-Assignment-Pt-2:" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW Assignment Pt 2:<a class="anchor-link" href="#HW-Assignment-Pt-2:"> </a>
+</h1>
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1250,9 +1269,22 @@ apples bananas grapes
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newMatrix</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">],</span> 
-            <span class="p">[</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">],</span>
-            <span class="p">[</span><span class="s2">"O"</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span>    
+<span class="c1"># Keypad: </span>
+
+<span class="n">keypad</span> <span class="o">=</span>   <span class="p">[[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">"4"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"6"</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">"7"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">]]</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">keypad</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">keypad</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+    
+    
 </pre></div>
 
     </div>
@@ -1264,12 +1296,13 @@ apples bananas grapes
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;list_iterator at 0x10dd9b670&gt;</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 2 3
+4 5 6
+7 8 9
+  0  
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -1278,6 +1311,15 @@ apples bananas grapes
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="HW-Assignment-Pt-3:">
+<a class="anchor" href="#HW-Assignment-Pt-3:" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW Assignment Pt 3:<a class="anchor-link" href="#HW-Assignment-Pt-3:"> </a>
+</h1>
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1306,6 +1348,23 @@ apples bananas grapes
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1363,8 +1422,13 @@ A         H
 </div>
 </div>
 </div>
-</div>
+&lt;/div&gt;
+ 
 
+</b></p>
+</div>
+</div></div>
+</div>
 
 
   </div><a class="u-url" href="/fast-pages/lesson4" hidden></a>
