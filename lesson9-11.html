@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      17 min read
     
 </span></p>
 
@@ -1220,6 +1220,88 @@ len(list1)  1 and mid as 0.</p>
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#all generated #s in the flowchart are randomly generated between 0 and 2... the flowchart also does not include print statements</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"This game will generate 3 random numbers (each between 0 and 20) for each round and will print the highest number. Try to get as high as possible!"</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">random</span> 
+
+<span class="k">def</span> <span class="nf">round</span><span class="p">():</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">final_num</span> <span class="o">=</span> <span class="n">num1</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num2</span> <span class="o">&gt;</span> <span class="n">num1</span><span class="p">:</span>
+        <span class="n">final_num</span> <span class="o">=</span> <span class="n">num2</span>
+        <span class="n">num3</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num3</span> <span class="o">&gt;</span> <span class="n">num2</span><span class="p">:</span> 
+            <span class="n">final_num</span> <span class="o">=</span> <span class="n">num3</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">num3</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num3</span> <span class="o">&gt;</span> <span class="n">num1</span><span class="p">:</span> 
+         <span class="n">final_num</span> <span class="o">=</span> <span class="n">num3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your highest number was: "</span><span class="p">,</span> <span class="n">final_num</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your other numbers were:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"1st number: "</span><span class="p">,</span> <span class="n">num1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"2nd number: "</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"3rd number: "</span><span class="p">,</span> <span class="n">num3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Would you like to play again? Type y/n"</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">ans</span> <span class="o">==</span> <span class="s2">"y"</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+        <span class="nb">round</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Thanks for playing"</span><span class="p">)</span>
+        
+<span class="nb">round</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This game will generate 3 random numbers (each between 0 and 20) for each round and will print the highest number. Try to get as high as possible!
+Your highest number was:  19
+Your other numbers were:
+1st number:  5
+2nd number:  19
+3rd number:  19
+
+Would you like to play again? Type y/n
+
+Your highest number was:  5
+Your other numbers were:
+1st number:  4
+2nd number:  2
+3rd number:  5
+
+Would you like to play again? Type y/n
+
+Thanks for playing
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
