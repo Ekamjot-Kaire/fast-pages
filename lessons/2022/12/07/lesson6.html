@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      6 min read
     
 </span></p>
 
@@ -390,14 +390,120 @@ MOVE_FORWARD()</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">procedure</span><span class="p">()</span>
-    <span class="c1"># code goes here</span>
-    <span class="k">return</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"what day is it? type the first letter, or 'th' for thursday"</span><span class="p">)</span>
+<span class="n">day</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">()</span>
+<span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"m"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"its monday"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"t"</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"its tuesday"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"w"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"its wednesday"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"th"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"its thursday"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"f"</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"its friday"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"s"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"its the weekend! (what do you need the schedule for?)"</span><span class="p">)</span>
 
-<span class="c1"># code goes here</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"what time is it?"</span><span class="p">)</span> <span class="c1">#this only works if you write the time as a decimal because im not smart enough to do actual time</span>
+<span class="n">time</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"the time is: "</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mf">8.00</span><span class="p">:</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="mi">12</span>
+
+
+<span class="k">def</span> <span class="nf">schedule</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"w"</span><span class="p">:</span> <span class="c1">#wednesday </span>
+        <span class="k">if</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mf">9.55</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"school has not started yet!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">9.55</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">10.53</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 1st period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">10.58</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">11.56</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 2nd period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">11.56</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">12.06</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its break"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">12.11</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">13.09</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 3rd period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">13.09</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">13.39</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its lunch"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">13.44</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">14.42</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 4th period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">14.47</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">15.45</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 5th period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mf">15.45</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"school is over :)"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its passing period"</span><span class="p">)</span> 
+    <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="s2">"f"</span><span class="p">:</span> <span class="c1">#friday</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mf">8.35</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"school has not started yet!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">8.35</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">9.49</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 1st period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">9.54</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">11.08</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 2nd period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">11.08</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">11.18</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its break"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">11.23</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">12.37</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 3rd period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">12.37</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">13.07</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its lunch"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">13.12</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">14.26</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 4th period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">14.31</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">15.45</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 5th period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mf">15.45</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"school is over :)"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its passing period"</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mf">8.35</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"school has not started yet!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">8.35</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">9.44</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 1st period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">9.49</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">10.58</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 2nd period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">10.58</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">11.08</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its break"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">11.13</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">12.22</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 3rd period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">12.22</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">12.52</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its lunch"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">12.57</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">14.06</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 4th period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">14.06</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">14.31</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its office hours"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="mf">14.36</span> <span class="o">&lt;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">15.45</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its 5th period"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mf">15.45</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"school is over :)"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"its passing period"</span><span class="p">)</span>  
+            
+        
+<span class="n">schedule</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>what day is it? type the first letter, or 'th' for thursday
+its wednesday
+what time is it?
+the time is:  10.15
+its 1st period
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
