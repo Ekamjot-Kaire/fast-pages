@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -110,9 +110,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Comparison-Operators:">Comparison Operators: </a></li>
 <li class="toc-entry toc-h1"><a href="#Boolean-Expressions-and-Selection/Iteration:">Boolean Expressions and Selection/Iteration: </a></li>
 <li class="toc-entry toc-h1"><a href="#Truth-Tables:">Truth Tables: </a></li>
-<li class="toc-entry toc-h1"><a href="#Characters-[not-talked-about-yet]">Characters [not talked about yet] </a></li>
+<li class="toc-entry toc-h1"><a href="#Characters">Characters </a></li>
 <li class="toc-entry toc-h1"><a href="#Strings:">Strings: </a></li>
-<li class="toc-entry toc-h1"><a href="#Length-[not-talked-about-yet]">Length [not talked about yet] </a></li>
+<li class="toc-entry toc-h1"><a href="#Length:">Length: </a></li>
 <li class="toc-entry toc-h1"><a href="#Concatenation:">Concatenation: </a></li>
 </ul><!--
 #################################################
@@ -582,32 +582,233 @@ window.onload = wrap_img;
 <a class="anchor" href="#Truth-Tables:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truth Tables:<a class="anchor-link" href="#Truth-Tables:"> </a>
 </h1>
 <p>Tables used to organize different possible combinations and whether they would be true or not based on the given parameters:</p>
-<p>Ex: A is true, B is false</p>
-<p><em>find example later -- cant find which section talked about it</em></p>
-<p>Lessons that discuss this: 
-?</p>
+<p>*Note: Binary can be used to represent T of F as well -- 0 is F and 1 is T</p>
+<ul>
+<li>
+<strong>AND truth tables:</strong> Both A AND B must be true for the overall operation to be true</li>
+</ul>
 <p><br></p>
-<h1 id="Characters-[not-talked-about-yet]">
-<a class="anchor" href="#Characters-%5Bnot-talked-about-yet%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characters [not talked about yet]<a class="anchor-link" href="#Characters-%5Bnot-talked-about-yet%5D"> </a>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<strong>OR truth tables:</strong> Either A OR B must be true for the overall operation to be true</li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<strong>XOR truth tables:</strong> Either A OR B must be true for the overall operation to be true, except if both are true then the overall outcome is F again</li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Lessons that discuss this:</p>
+<ul>
+<li>Mr. Mort's lesson.. Week 2</li>
+</ul>
+<p><br></p>
+<h1 id="Characters">
+<a class="anchor" href="#Characters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characters<a class="anchor-link" href="#Characters"> </a>
 </h1>
+<p><strong> Not talked about yet </strong></p>
+<p>A letter.. Python does not have a separate data type for characters, so single letters will still be considered a string (or a variable if its used for that)</p>
+<p><br></p>
 <h1 id="Strings:">
 <a class="anchor" href="#Strings:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings:<a class="anchor-link" href="#Strings:"> </a>
 </h1>
 <p>A string is a type of value, that includes text. Strings are usually denoted by surrounding the text in quotation marks. Even numbers can be classified as strings if they're put in quotation marks</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">"hello"</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Lessons that discuss this:</p>
 <ul>
 <li>Lesson 1</li>
 </ul>
 <p><br></p>
-<h1 id="Length-[not-talked-about-yet]">
-<a class="anchor" href="#Length-%5Bnot-talked-about-yet%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Length [not talked about yet]<a class="anchor-link" href="#Length-%5Bnot-talked-about-yet%5D"> </a>
+<h1 id="Length:">
+<a class="anchor" href="#Length:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Length:<a class="anchor-link" href="#Length:"> </a>
 </h1>
+<p>The function len() returns the amount of characters in a string. This can also be used for variables that have a string value.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s2">"supercalifragilisticexpialidocious"</span><span class="p">)</span> <span class="c1">#this word has 34 characters, so the function should print 34</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>34</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lessons that talk about this:</p>
+<ul>
+<li>none</li>
+</ul>
+<p><br></p>
 <h1 id="Concatenation:">
 <a class="anchor" href="#Concatenation:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concatenation:<a class="anchor-link" href="#Concatenation:"> </a>
 </h1>
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string1</span> <span class="o">=</span> <span class="s2">"book"</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s2">"case"</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
