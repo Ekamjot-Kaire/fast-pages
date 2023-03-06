@@ -644,6 +644,14 @@
   
 
   
+      ,"page10": {
+          "title": "Tri 1",
+          "content": "Work done by Week . Week 13 Week 14 Week 15 Binary Conversions Blog (FIX LATER) | Sections 3.1 and 3.2 -- Variables, Assignments, and Data Abstractions | Sections 3.8 and 3.10s -- Boolean Iteration and Lists | . Rough Lesson Plan | Sections 3.3 and 3.4 (Our Lesson) -- Mathematical Expressions and Strings | Sections 3.9 and 3.11 -- Developing Algorithms and Binary Search | . Final Lesson Notebook | Sections 3.5, 3.6, and 3.7 -- Boolean Expression, Conditionals, and Nested Conditionals | Sections 3.12 and 3.13 -- Calling and Developing Procedures | . Week 16 Week 17 Week 18 Sections 3.14 and 3.15 -- Libraries and Random Values | Collegeboard Scoring | Collegeboard Scoring 2 | . Section 3.16 -- Simulations | none | none | . Sections 3.17 and 3.18 -- Algorithm Efficiency and Undecidable Problems | none | none | . Week 19 Week 20 Week 21 Collegeboard Scoring 3 | Units 5.1 and 5.2 Notes | nothing yet | . none | MCQ 2 | nothing yet | . none | nothing yet | nothing yet | . .",
+          "url": "https://ekamjot-kaire.github.io/fast-pages/tri1/",
+          "relUrl": "/tri1/",
+          "date": ""
+      }
+      
   
 
   
@@ -653,16 +661,19 @@
   
 
   
-
   
 
   
 
   
+
   
 
   
-      ,"page17": {
+  
+
+  
+      ,"page18": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://ekamjot-kaire.github.io/fast-pages/robots.txt",
