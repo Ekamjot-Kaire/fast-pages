@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      22 min read
     
 </span></p>
 
@@ -136,7 +136,11 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#Example-of-larger-data-set">Example of larger data set </a></li>
-<li class="toc-entry toc-h1"><a href="#APIs-are-a-Source-for-Writing-Programs-with-Data">APIs are a Source for Writing Programs with Data </a></li>
+<li class="toc-entry toc-h1"><a href="#APIs-are-a-Source-for-Writing-Programs-with-Data">APIs are a Source for Writing Programs with Data </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Hacks">Hacks </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Hack-Helpers">Hack Helpers </a>
@@ -856,6 +860,599 @@ None
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
+</h3>
+<p>Testing IMDB dataset for different data sets on movies:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'files/tmdb-movies.csv'</span><span class="p">)</span>
+<span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#to preview the data set</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>imdb_id</th>
+      <th>popularity</th>
+      <th>budget</th>
+      <th>revenue</th>
+      <th>original_title</th>
+      <th>cast</th>
+      <th>homepage</th>
+      <th>director</th>
+      <th>tagline</th>
+      <th>...</th>
+      <th>overview</th>
+      <th>runtime</th>
+      <th>genres</th>
+      <th>production_companies</th>
+      <th>release_date</th>
+      <th>vote_count</th>
+      <th>vote_average</th>
+      <th>release_year</th>
+      <th>budget_adj</th>
+      <th>revenue_adj</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>135397</td>
+      <td>tt0369610</td>
+      <td>32.985763</td>
+      <td>150000000</td>
+      <td>1513528810</td>
+      <td>Jurassic World</td>
+      <td>Chris Pratt|Bryce Dallas Howard|Irrfan Khan|Vi...</td>
+      <td>http://www.jurassicworld.com/</td>
+      <td>Colin Trevorrow</td>
+      <td>The park is open.</td>
+      <td>...</td>
+      <td>Twenty-two years after the events of Jurassic ...</td>
+      <td>124</td>
+      <td>Action|Adventure|Science Fiction|Thriller</td>
+      <td>Universal Studios|Amblin Entertainment|Legenda...</td>
+      <td>6/9/15</td>
+      <td>5562</td>
+      <td>6.5</td>
+      <td>2015</td>
+      <td>1.379999e+08</td>
+      <td>1.392446e+09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>76341</td>
+      <td>tt1392190</td>
+      <td>28.419936</td>
+      <td>150000000</td>
+      <td>378436354</td>
+      <td>Mad Max: Fury Road</td>
+      <td>Tom Hardy|Charlize Theron|Hugh Keays-Byrne|Nic...</td>
+      <td>http://www.madmaxmovie.com/</td>
+      <td>George Miller</td>
+      <td>What a Lovely Day.</td>
+      <td>...</td>
+      <td>An apocalyptic story set in the furthest reach...</td>
+      <td>120</td>
+      <td>Action|Adventure|Science Fiction|Thriller</td>
+      <td>Village Roadshow Pictures|Kennedy Miller Produ...</td>
+      <td>5/13/15</td>
+      <td>6185</td>
+      <td>7.1</td>
+      <td>2015</td>
+      <td>1.379999e+08</td>
+      <td>3.481613e+08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>262500</td>
+      <td>tt2908446</td>
+      <td>13.112507</td>
+      <td>110000000</td>
+      <td>295238201</td>
+      <td>Insurgent</td>
+      <td>Shailene Woodley|Theo James|Kate Winslet|Ansel...</td>
+      <td>http://www.thedivergentseries.movie/#insurgent</td>
+      <td>Robert Schwentke</td>
+      <td>One Choice Can Destroy You</td>
+      <td>...</td>
+      <td>Beatrice Prior must confront her inner demons ...</td>
+      <td>119</td>
+      <td>Adventure|Science Fiction|Thriller</td>
+      <td>Summit Entertainment|Mandeville Films|Red Wago...</td>
+      <td>3/18/15</td>
+      <td>2480</td>
+      <td>6.3</td>
+      <td>2015</td>
+      <td>1.012000e+08</td>
+      <td>2.716190e+08</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>140607</td>
+      <td>tt2488496</td>
+      <td>11.173104</td>
+      <td>200000000</td>
+      <td>2068178225</td>
+      <td>Star Wars: The Force Awakens</td>
+      <td>Harrison Ford|Mark Hamill|Carrie Fisher|Adam D...</td>
+      <td>http://www.starwars.com/films/star-wars-episod...</td>
+      <td>J.J. Abrams</td>
+      <td>Every generation has a story.</td>
+      <td>...</td>
+      <td>Thirty years after defeating the Galactic Empi...</td>
+      <td>136</td>
+      <td>Action|Adventure|Science Fiction|Fantasy</td>
+      <td>Lucasfilm|Truenorth Productions|Bad Robot</td>
+      <td>12/15/15</td>
+      <td>5292</td>
+      <td>7.5</td>
+      <td>2015</td>
+      <td>1.839999e+08</td>
+      <td>1.902723e+09</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>168259</td>
+      <td>tt2820852</td>
+      <td>9.335014</td>
+      <td>190000000</td>
+      <td>1506249360</td>
+      <td>Furious 7</td>
+      <td>Vin Diesel|Paul Walker|Jason Statham|Michelle ...</td>
+      <td>http://www.furious7.com/</td>
+      <td>James Wan</td>
+      <td>Vengeance Hits Home</td>
+      <td>...</td>
+      <td>Deckard Shaw seeks revenge against Dominic Tor...</td>
+      <td>137</td>
+      <td>Action|Crime|Thriller</td>
+      <td>Universal Pictures|Original Film|Media Rights ...</td>
+      <td>4/1/15</td>
+      <td>2947</td>
+      <td>7.3</td>
+      <td>2015</td>
+      <td>1.747999e+08</td>
+      <td>1.385749e+09</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>imdb_id</th>
+      <th>popularity</th>
+      <th>budget</th>
+      <th>revenue</th>
+      <th>original_title</th>
+      <th>cast</th>
+      <th>homepage</th>
+      <th>director</th>
+      <th>tagline</th>
+      <th>...</th>
+      <th>overview</th>
+      <th>runtime</th>
+      <th>genres</th>
+      <th>production_companies</th>
+      <th>release_date</th>
+      <th>vote_count</th>
+      <th>vote_average</th>
+      <th>release_year</th>
+      <th>budget_adj</th>
+      <th>revenue_adj</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10861</th>
+      <td>21</td>
+      <td>tt0060371</td>
+      <td>0.080598</td>
+      <td>0</td>
+      <td>0</td>
+      <td>The Endless Summer</td>
+      <td>Michael Hynson|Robert August|Lord 'Tally Ho' B...</td>
+      <td>NaN</td>
+      <td>Bruce Brown</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>The Endless Summer, by Bruce Brown, is one of ...</td>
+      <td>95</td>
+      <td>Documentary</td>
+      <td>Bruce Brown Films</td>
+      <td>6/15/66</td>
+      <td>11</td>
+      <td>7.4</td>
+      <td>1966</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10862</th>
+      <td>20379</td>
+      <td>tt0060472</td>
+      <td>0.065543</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Grand Prix</td>
+      <td>James Garner|Eva Marie Saint|Yves Montand|Tosh...</td>
+      <td>NaN</td>
+      <td>John Frankenheimer</td>
+      <td>Cinerama sweeps YOU into a drama of speed and ...</td>
+      <td>...</td>
+      <td>Grand Prix driver Pete Aron is fired by his te...</td>
+      <td>176</td>
+      <td>Action|Adventure|Drama</td>
+      <td>Cherokee Productions|Joel Productions|Douglas ...</td>
+      <td>12/21/66</td>
+      <td>20</td>
+      <td>5.7</td>
+      <td>1966</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10863</th>
+      <td>39768</td>
+      <td>tt0060161</td>
+      <td>0.065141</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Beregis Avtomobilya</td>
+      <td>Innokentiy Smoktunovskiy|Oleg Efremov|Georgi Z...</td>
+      <td>NaN</td>
+      <td>Eldar Ryazanov</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>An insurance agent who moonlights as a carthie...</td>
+      <td>94</td>
+      <td>Mystery|Comedy</td>
+      <td>Mosfilm</td>
+      <td>1/1/66</td>
+      <td>11</td>
+      <td>6.5</td>
+      <td>1966</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10864</th>
+      <td>21449</td>
+      <td>tt0061177</td>
+      <td>0.064317</td>
+      <td>0</td>
+      <td>0</td>
+      <td>What's Up, Tiger Lily?</td>
+      <td>Tatsuya Mihashi|Akiko Wakabayashi|Mie Hama|Joh...</td>
+      <td>NaN</td>
+      <td>Woody Allen</td>
+      <td>WOODY ALLEN STRIKES BACK!</td>
+      <td>...</td>
+      <td>In comic Woody Allen's film debut, he took the...</td>
+      <td>80</td>
+      <td>Action|Comedy</td>
+      <td>Benedict Pictures Corp.</td>
+      <td>11/2/66</td>
+      <td>22</td>
+      <td>5.4</td>
+      <td>1966</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10865</th>
+      <td>22293</td>
+      <td>tt0060666</td>
+      <td>0.035919</td>
+      <td>19000</td>
+      <td>0</td>
+      <td>Manos: The Hands of Fate</td>
+      <td>Harold P. Warren|Tom Neyman|John Reynolds|Dian...</td>
+      <td>NaN</td>
+      <td>Harold P. Warren</td>
+      <td>It's Shocking! It's Beyond Your Imagination!</td>
+      <td>...</td>
+      <td>A family gets lost on the road and stumbles up...</td>
+      <td>74</td>
+      <td>Horror</td>
+      <td>Norm-Iris</td>
+      <td>11/15/66</td>
+      <td>15</td>
+      <td>1.5</td>
+      <td>1966</td>
+      <td>127642.279154</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index(['id', 'imdb_id', 'popularity', 'budget', 'revenue', 'original_title',
+       'cast', 'homepage', 'director', 'tagline', 'keywords', 'overview',
+       'runtime', 'genres', 'production_companies', 'release_date',
+       'vote_count', 'vote_average', 'release_year', 'budget_adj',
+       'revenue_adj'],
+      dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'popularity'</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>          id    imdb_id  popularity     budget     revenue  \
+6181   18729  tt0088583    0.000065          0           0   
+9977   32082  tt0067217    0.000188          0           0   
+6080  174323  tt2429074    0.000620          0           0   
+6551   31329  tt0445570    0.000973          0           0   
+6961   15412  tt0466460    0.001115          0           0   
+...      ...        ...         ...        ...         ...   
+2     262500  tt2908446   13.112507  110000000   295238201   
+630   118340  tt2015381   14.311205  170000000   773312399   
+629   157336  tt0816692   24.949134  165000000   621752480   
+1      76341  tt1392190   28.419936  150000000   378436354   
+0     135397  tt0369610   32.985763  150000000  1513528810   
+
+                  original_title  \
+6181     North and South, Book I   
+9977                The Hospital   
+6080                      G.B.F.   
+6551  Mon petit doigt m'a dit...   
+6961           Khosla Ka Ghosla!   
+...                          ...   
+2                      Insurgent   
+630      Guardians of the Galaxy   
+629                 Interstellar   
+1             Mad Max: Fury Road   
+0                 Jurassic World   
+
+                                                   cast  \
+6181  Patrick Swayze|Philip Casnoff|Kirstie Alley|Ge...   
+9977  George C. Scott|Diana Rigg|Richard Dysart|Barn...   
+6080  Michael J. Willett|Paul Iacono|Sasha Pieterse|...   
+6551  Catherine Frot|AndrÃ© Dussollier|GeneviÃ¨ve Bu...   
+6961  Anupam Kher|Boman Irani|Parvin Dabas|Tara Shar...   
+...                                                 ...   
+2     Shailene Woodley|Theo James|Kate Winslet|Ansel...   
+630   Chris Pratt|Zoe Saldana|Dave Bautista|Vin Dies...   
+629   Matthew McConaughey|Jessica Chastain|Anne Hath...   
+1     Tom Hardy|Charlize Theron|Hugh Keays-Byrne|Nic...   
+0     Chris Pratt|Bryce Dallas Howard|Irrfan Khan|Vi...   
+
+                                            homepage           director  \
+6181                                             NaN                NaN   
+9977                                             NaN      Arthur Hiller   
+6080               https://www.facebook.com/GBFmovie       Darren Stein   
+6551                                             NaN      Pascal Thomas   
+6961                                             NaN   Dibakar Banerjee   
+...                                              ...                ...   
+2     http://www.thedivergentseries.movie/#insurgent   Robert Schwentke   
+630                      http://marvel.com/guardians         James Gunn   
+629                http://www.interstellarmovie.net/  Christopher Nolan   
+1                        http://www.madmaxmovie.com/      George Miller   
+0                      http://www.jurassicworld.com/    Colin Trevorrow   
+
+                                                tagline  ...  \
+6181                                                NaN  ...   
+9977                   Madness, Murder and Malpractice.  ...   
+6080                    Being out has never been so in.  ...   
+6551                                                NaN  ...   
+6961  A Delhi-based retired middle class man tries t...  ...   
+...                                                 ...  ...   
+2                            One Choice Can Destroy You  ...   
+630                         All heroes start somewhere.  ...   
+629   Mankind was born on Earth. It was never meant ...  ...   
+1                                    What a Lovely Day.  ...   
+0                                     The park is open.  ...   
+
+                                               overview runtime  \
+6181  Two friends, one northern and one southern, st...     561   
+9977  Black comedy in which a suicidal doctor strugg...     103   
+6080  The bitter fight for supremacy between the thr...      92   
+6551                                 No overview found.     105   
+6961  Upon retirement, cranky control freak Kamal Ki...     135   
+...                                                 ...     ...   
+2     Beatrice Prior must confront her inner demons ...     119   
+630   Light years from Earth, 26 years after being a...     121   
+629   Interstellar chronicles the adventures of a gr...     169   
+1     An apocalyptic story set in the furthest reach...     120   
+0     Twenty-two years after the events of Jurassic ...     124   
+
+                                         genres  \
+6181                      Drama|History|Western   
+9977                       Mystery|Comedy|Drama   
+6080                                     Comedy   
+6551                             Comedy|Mystery   
+6961                                     Comedy   
+...                                         ...   
+2            Adventure|Science Fiction|Thriller   
+630            Action|Science Fiction|Adventure   
+629             Adventure|Drama|Science Fiction   
+1     Action|Adventure|Science Fiction|Thriller   
+0     Action|Adventure|Science Fiction|Thriller   
+
+                                   production_companies release_date  \
+6181                                                NaN      11/3/85   
+9977                                 Simcha Productions     12/14/71   
+6080  School Pictures|Parting Shots Media|Logolite E...     10/20/13   
+6551               RhÃ´ne-Alpes CinÃ©ma|France2 CinÃ©ma      4/13/05   
+6961                                UTV Motion Pictures      9/22/06   
+...                                                 ...          ...   
+2     Summit Entertainment|Mandeville Films|Red Wago...      3/18/15   
+630   Marvel Studios|Moving Picture Company (MPC)|Bu...      7/30/14   
+629   Paramount Pictures|Legendary Pictures|Warner B...      11/5/14   
+1     Village Roadshow Pictures|Kennedy Miller Produ...      5/13/15   
+0     Universal Studios|Amblin Entertainment|Legenda...       6/9/15   
+
+     vote_count  vote_average  release_year    budget_adj   revenue_adj  
+6181         17           6.0          1985  0.000000e+00  0.000000e+00  
+9977         10           6.4          1971  0.000000e+00  0.000000e+00  
+6080         82           6.1          2013  0.000000e+00  0.000000e+00  
+6551         13           5.7          2005  0.000000e+00  0.000000e+00  
+6961         10           6.8          2006  0.000000e+00  0.000000e+00  
+...         ...           ...           ...           ...           ...  
+2          2480           6.3          2015  1.012000e+08  2.716190e+08  
+630        5612           7.9          2014  1.565855e+08  7.122911e+08  
+629        6498           8.0          2014  1.519800e+08  5.726906e+08  
+1          6185           7.1          2015  1.379999e+08  3.481613e+08  
+0          5562           6.5          2015  1.379999e+08  1.392446e+09  
+
+[10866 rows x 21 columns]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h1>
@@ -973,6 +1570,51 @@ None
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Titanic Data
+Index(['survived', 'pclass', 'sex', 'age', 'sibsp', 'parch', 'fare',
+       'embarked', 'class', 'who', 'adult_male', 'deck', 'embark_town',
+       'alive', 'alone'],
+      dtype='object')
+     survived  pclass     sex   age  sibsp  parch   class     fare  \
+0           0       3    male  22.0      1      0   Third   7.2500   
+1           1       1  female  38.0      1      0   First  71.2833   
+2           1       3  female  26.0      0      0   Third   7.9250   
+3           1       1  female  35.0      1      0   First  53.1000   
+4           0       3    male  35.0      0      0   Third   8.0500   
+..        ...     ...     ...   ...    ...    ...     ...      ...   
+886         0       2    male  27.0      0      0  Second  13.0000   
+887         1       1  female  19.0      0      0   First  30.0000   
+888         0       3  female   NaN      1      2   Third  23.4500   
+889         1       1    male  26.0      0      0   First  30.0000   
+890         0       3    male  32.0      0      0   Third   7.7500   
+
+     embark_town  
+0    Southampton  
+1      Cherbourg  
+2    Southampton  
+3    Southampton  
+4    Southampton  
+..           ...  
+886  Southampton  
+887  Southampton  
+888  Southampton  
+889    Cherbourg  
+890   Queenstown  
+
+[891 rows x 9 columns]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -1016,6 +1658,46 @@ None
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     survived  pclass  sex   age  sibsp  parch      fare  alone  embarked_C  \
+0           0       3    1  22.0      1      0    7.2500      0         0.0   
+1           1       1    0  38.0      1      0   71.2833      0         1.0   
+2           1       3    0  26.0      0      0    7.9250      1         0.0   
+3           1       1    0  35.0      1      0   53.1000      0         0.0   
+4           0       3    1  35.0      0      0    8.0500      1         0.0   
+..        ...     ...  ...   ...    ...    ...       ...    ...         ...   
+705         0       2    1  39.0      0      0   26.0000      1         0.0   
+706         1       2    0  45.0      0      0   13.5000      1         0.0   
+707         1       1    1  42.0      0      0   26.2875      1         0.0   
+708         1       1    0  22.0      0      0  151.5500      1         0.0   
+710         1       1    0  24.0      0      0   49.5042      1         1.0   
+
+     embarked_Q  embarked_S  
+0           0.0         1.0  
+1           0.0         0.0  
+2           0.0         1.0  
+3           0.0         1.0  
+4           0.0         1.0  
+..          ...         ...  
+705         0.0         1.0  
+706         0.0         1.0  
+707         1.0         0.0  
+708         0.0         1.0  
+710         0.0         0.0  
+
+[564 rows x 11 columns]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1066,6 +1748,31 @@ None
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>survived       0.000000
+pclass         2.464072
+sex            0.844311
+age           31.073353
+sibsp          0.562874
+parch          0.398204
+fare          24.835902
+alone          0.616766
+embarked_C     0.185629
+embarked_Q     0.038922
+embarked_S     0.775449
+dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -1090,6 +1797,31 @@ None
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>survived       1.000000
+pclass         1.878261
+sex            0.326087
+age           28.481522
+sibsp          0.504348
+parch          0.508696
+fare          50.188806
+alone          0.456522
+embarked_C     0.152174
+embarked_Q     0.034783
+embarked_S     0.813043
+dtype: float64
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1118,6 +1850,43 @@ None
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>survived        1.0000
+pclass          3.0000
+sex             1.0000
+age            80.0000
+sibsp           4.0000
+parch           5.0000
+fare          512.3292
+alone           1.0000
+embarked_C      1.0000
+embarked_Q      1.0000
+embarked_S      1.0000
+dtype: float64
+survived      1.00
+pclass        1.00
+sex           0.00
+age           0.75
+sibsp         0.00
+parch         0.00
+fare          0.00
+alone         0.00
+embarked_C    0.00
+embarked_Q    0.00
+embarked_S    0.00
+dtype: float64
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1181,6 +1950,36 @@ None
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>DecisionTreeClassifier Accuracy: 0.7529411764705882
+LogisticRegression Accuracy: 0.788235294117647
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/ekamjotkaire/opt/anaconda3/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
