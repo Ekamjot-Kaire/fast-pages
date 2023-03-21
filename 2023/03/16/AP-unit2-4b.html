@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -564,7 +564,7 @@ window.onload = wrap_img;
 <blockquote>
 <p>CRUD and Schema interactions from one location by running menu. Observe input at the top of VSCode, observe output underneath code cell.</p>
 <ul>
-<li>Why does the menu repeat?</li>
+<li>Why does the menu repeat? -- the menu repeats because there is recursion; the method calls itself within the actual method. The </li>
 <li>Could you refactor this menu?  Make it work with a List?</li>
 </ul>
 </blockquote>
@@ -607,38 +607,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 'Thomas Edison', 'toby', 'sha256$YnutldwtdKeuDLNg$683f6f933bee913bd97dbc487a1f29e39e4203e49d8c10ab81b6b2a45bb17119', '1847-02-11')
-(2, 'Nikola Tesla', 'niko', 'sha256$4e45ELX8bMZ46pkr$41fe21a301c86d158691d0fbc3878303c7cf8c10b49e54a46cd33c49301fd17d', '2023-03-15')
-(3, 'Alexander Graham Bell', 'lex', 'sha256$cHKh2ZVqdqSRoBbx$31ada3addcd1604e55728c6003c34a6126601a3745443b869f7e249c621d8405', '2023-03-15')
-(4, 'Eli Whitney', 'whit', 'sha256$W148lda1rZv0iHgd$10388e75cc86a508ae83cba1c963145ffa81daa6ad64721c80a80b82f35de7e8', '2023-03-15')
-(5, 'Indiana Jones', 'indi', 'sha256$CjCWYu5oyfuPuAqV$b279a8f403567470e25c67ecdf2cb4baaa58f1906f3b86cc15ada2642d6d4456', '1920-10-21')
-(6, 'Marion Ravenwood', 'raven', 'sha256$YMJAJQmEnhGEFKBG$4ddc1c823f808f55586b520d5f7e17ccefbbbd9e7b11e31c76b243ac4cbf58bf', '1921-10-21')
-(7, 'ekam', 'ekm', 'sha256$ylbg84cxQufRxZoF$e975cbca25bd3d16b94a9791627910fea7bda9dd803bb33e36ad289c067db193', '2006-05-04')
-(8, 'mark', '', '', '')
-(9, 'George Washington', 'wash', 'gothackednewpassword123', '1778-04-03')
-(1, 'Thomas Edison', 'toby', 'sha256$YnutldwtdKeuDLNg$683f6f933bee913bd97dbc487a1f29e39e4203e49d8c10ab81b6b2a45bb17119', '1847-02-11')
-(2, 'Nikola Tesla', 'niko', 'sha256$4e45ELX8bMZ46pkr$41fe21a301c86d158691d0fbc3878303c7cf8c10b49e54a46cd33c49301fd17d', '2023-03-15')
-(3, 'Alexander Graham Bell', 'lex', 'sha256$cHKh2ZVqdqSRoBbx$31ada3addcd1604e55728c6003c34a6126601a3745443b869f7e249c621d8405', '2023-03-15')
-(4, 'Eli Whitney', 'whit', 'sha256$W148lda1rZv0iHgd$10388e75cc86a508ae83cba1c963145ffa81daa6ad64721c80a80b82f35de7e8', '2023-03-15')
-(5, 'Indiana Jones', 'indi', 'sha256$CjCWYu5oyfuPuAqV$b279a8f403567470e25c67ecdf2cb4baaa58f1906f3b86cc15ada2642d6d4456', '1920-10-21')
-(6, 'Marion Ravenwood', 'raven', 'sha256$YMJAJQmEnhGEFKBG$4ddc1c823f808f55586b520d5f7e17ccefbbbd9e7b11e31c76b243ac4cbf58bf', '1921-10-21')
-(7, 'ekam', 'ekm', 'sha256$ylbg84cxQufRxZoF$e975cbca25bd3d16b94a9791627910fea7bda9dd803bb33e36ad289c067db193', '2006-05-04')
-(8, 'mark', '', '', '')
-(9, 'George Washington', 'wash', 'gothackednewpassword123', '1778-04-03')
-The row with uid lex was successfully deleted
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -658,6 +626,120 @@ The row with uid lex was successfully deleted
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'SELECT * FROM meal_log'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Table is empty"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+
+<span class="c1"># CREATE METHOD </span>
+<span class="k">def</span> <span class="nf">create</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the name of your meal (names must be unique.. if there are multiple of the same meal, add a number):"</span><span class="p">)</span>
+    <span class="n">foodgroup</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter what food group the meal is in:"</span><span class="p">)</span>
+    <span class="n">calories</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the number of calories the meal is"</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"enter the time you ate the meal (include AM/PM)"</span><span class="p">)</span>
+    
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO meal_log (_name, _foodgroup, _calories, _time) VALUES (?, ?, ?, ?)"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">foodgroup</span><span class="p">,</span> <span class="n">calories</span><span class="p">,</span> <span class="n">time</span><span class="p">))</span>
+        
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A new meal </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has been created"</span><span class="p">)</span>
+                
+    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the INSERT:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="c1"># DELETE METHOD:</span>
+
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">delete</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter meal name to delete"</span><span class="p">)</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"DELETE FROM users WHERE _name = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># The uid was not found in the table</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was not found in the table"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># The uid was found in the table and the row was deleted</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The row with name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was successfully deleted"</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the DELETE:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">menu</span><span class="p">():</span>
+    <span class="n">operation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter: (C)reate (R)ead or (D)elete"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'c'</span><span class="p">:</span>
+        <span class="n">create</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'r'</span><span class="p">:</span>
+        <span class="n">read</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'d'</span><span class="p">:</span>
+        <span class="n">delete</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># Escape Key</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please enter c, r, u, or d"</span><span class="p">)</span> 
+    <span class="n">menu</span><span class="p">()</span> <span class="c1"># recursion, repeat menu</span>
+        
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">menu</span><span class="p">()</span> <span class="c1"># start menu</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"error"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error while executing the INSERT: near "_calories": syntax error
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
