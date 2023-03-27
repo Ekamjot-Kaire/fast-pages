@@ -51,24 +51,26 @@ permalink: /project/
     <HTML>
         <style>
         /* top bar (black) -- add buttons to go back to escape room + leaderboard */ 
-        
             .menu { 
                 background-color: #000000;
                 font-family: "Obitron", monospace; 
                 font-style: italic;
                 height: 50px;
-                width: 10000px;         
+                width: 400px;         
         </style>
         <body>
             <div class= "menu">
                 <h1 style="color:white;"> Binary Racer  </h1>
             </div>
+        </body>
+        <body>
             <div class="progressbar">
                 <div class="inner"></div>
             </div>
             
             <button onclick="startProgress()">Start </button>
-            
+        </body>
+
             <script>
                 function startProgress() {
                     var progressBar = document.querySelector('.inner');
