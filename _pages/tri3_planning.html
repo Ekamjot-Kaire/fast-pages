@@ -1,0 +1,76 @@
+---
+layout: page
+title: Tri 2
+permalink: /project/
+---
+
+<style>
+
+    /* body styling */ 
+    
+    body {
+        height: 200px;
+        background-color: grey;
+        padding: 0px;
+    }
+    
+    /* progress bar styling */ 
+    
+    .progressbar {
+      width: 200px;
+      border: solid 1px #000;
+      border-radius: 6px;
+    }
+    .progressbar .inner {
+      height: 15px;
+      animation: progressbar-countdown;
+      animation-duration: 40s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-play-state: paused;
+      animation-timing-function: linear;
+      border-radius: 6px;
+      width: 100%;
+      background: #66D3FA;
+    }
+    
+    /* progress bar animation */ 
+    @keyframes progressbar-countdown {
+      0% {
+        width: 100%;
+        background: #66D3FA;
+      }
+      100% {
+        width: 0%;
+        background: #F00;
+      }
+    }
+    </style>
+    
+
+    <HTML>
+        <style>
+        /* top bar (black) -- add buttons to go back to escape room + leaderboard */ 
+        
+            .menu { 
+                background-color: #000000;
+                font-family: "Obitron", monospace; 
+                font-style: italic;
+                height: 50px;
+                width: 10000px;         
+        </style>
+        <body>
+            <div class= "menu">
+                <h1 style="color:white;"> Binary Racer  </h1>
+            </div>
+            <div class="progressbar">
+                <div class="inner"></div>
+            </div>
+            
+            <button onclick="startProgress()">Start </button>
+            
+            <script>
+                function startProgress() {
+                    var progressBar = document.querySelector('.inner');
+                    progressBar.style.animationPlayState = 'running';
+                }
