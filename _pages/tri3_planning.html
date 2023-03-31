@@ -4,75 +4,46 @@ title: Tri 3 Frontend
 permalink: /project/
 ---
 
-<style>
+<html style="background-image: url(https://user-images.githubusercontent.com/82348259/228929504-e3662960-466c-4d4a-a4af-3250c659b5e3.png); background-size: cover; background-repeat: no-repeat">
+    <head>
+        <link rel=“preconnect” href=“https://fonts.googleapis.com/%22%3E <link rel=“preconnect” href=“https://fonts.gstatic.com/” crossorigin> <link href=“https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap” rel=“stylesheet”>
+      <style>
+        .flex-container {
+            display: flex;
+            align-items: stretch;
+            background-color: rgb(0, 0, 0);
+          }
+          
+        .flex-container {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            margin: 10px;
+            padding: 10px;
+            text-align: left;
+            line-height: 75px;
+          }
+        .button {
+            border: none;
+            color: rgb(44, 223, 20);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+      </style>
+    </head>
+  <body>
+    <div class="flex-container">
+        <div style="flex-grow: 8; font-size: 50">B1NARY RACER ⪢⪢⪢</div>
+        <div style="flex-grow: 1; font-size: 20">Leaderboard</div>
+        <div style="flex-grow: 1; font-size: 20">Back to Escape Room</div>
+    </div>
+    <div>
+      <button style="background-color: rgb(27, 15, 78)">green</button>
 
-    /* body styling */ 
-    
-    body {
-        height: 200px;
-        background-color: grey;
-        padding: 0px;
-    }
-    
-    /* progress bar styling */ 
-    
-    .progressbar {
-      width: 200px;
-      border: solid 1px #000;
-      border-radius: 6px;
-    }
-    .progressbar .inner {
-      height: 15px;
-      animation: progressbar-countdown;
-      animation-duration: 40s;
-      animation-iteration-count: 1;
-      animation-fill-mode: forwards;
-      animation-play-state: paused;
-      animation-timing-function: linear;
-      border-radius: 6px;
-      width: 100%;
-      background: #66D3FA;
-    }
-    
-    /* progress bar animation */ 
-    @keyframes progressbar-countdown {
-      0% {
-        width: 100%;
-        background: #66D3FA;
-      }
-      100% {
-        width: 0%;
-        background: #F00;
-      }
-    }
-    </style>
-    
-
-    <html>
-        <style>
-        /* top bar (black) -- add buttons to go back to escape room + leaderboard */ 
-            .menu { 
-                background-color: #000000;
-                font-family: "Obitron", monospace; 
-                font-style: italic;
-                height: 50px;
-                width: 400px;         
-        </style>
-        <body>
-            <div class= "menu">
-                <h1 style="color:white;"> Binary Racer  </h1>
-            </div>
-        </body>
-        <body>
-            <div class="progressbar">
-                <div class="inner"></div>
-            </div>
-            
-            <button onclick="startProgress()">Start </button>
-        </body>
-
-            <script>
-                function startProgress() {
-                    var progressBar = document.querySelector('.inner');
-                    progressBar.style.animationPlayState = 'running';
-                }
+    </div>
+  </body>
+</html> 
