@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html style="background-color: rgb(65, 63, 65)">
+    <head>
+        <link rel=“preconnect” href=“https://fonts.googleapis.com/%22%3E <link rel=“preconnect” href=“https://fonts.gstatic.com/” crossorigin> <link href=“https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap” rel=“stylesheet”>
+      <style>
+
+        /*div container that acts as a parent for the road image + other stuff */
+        .wrapper { 
+                  display:flex;
+                  flex-direction: column;
+                  align-items: flex-end;
+                  justify-content: flex-end;
+        }
+        /* progress bar */    
+        .progressbar {
+            width: 80%;
+            margin: 25px auto;
+            border-radius: 6px;
+            top: 300px;
+            left: 300px;
+        }
+        .progressbar .inner {
+            height: 15px;
+            animation: progressbar-countdown;
+            animation-duration: 40s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-play-state: unset;
+            animation-timing-function: linear;
+            border-radius: 6px;
+            width: 0%;
+
+        }
+        @keyframes progressbar-countdown {
+          0% {
+            width: 0%;
+            background: #F00;
+          }
+          100% {
+            width: 100%;
+            background: #66D3FA;
+          }
+        }
+
+        /* menu styling */
+        .menu {
+            display: flex;
+            align-items: stretch;
+            background-color: rgb(0, 0, 0);
+            position: sticky;
+          }
+        .menu {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            margin: 10px;
+            padding: 10px;
+            text-align: left;
+            line-height: 75px;
+            position: sticky;
+          }
+
+        img { 
+            display: flex;
+            position: absolute;
+            top: 220px;
+            min-width: 100%;
+            max-width: 100%;
+        }
+        
+        /* container for all answer buttons */
+        .button_container { 
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+        }
+
+        /*answer button 1 -- blue */
+        .answer_buttons1 {
+            background-color: rgb(11,83,148);
+            color: white;
+            border: none;
+            text-align: center; 
+            font-size: 30px; 
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .answer_buttons1:hover {background-color: rgb(7, 59, 105)}
+        .answer_buttons1:active { 
+          background-color: rgb(7, 59, 105);
+          transform: translateY(4px);
+        }
+
+        /*answer button 2 -- yellow */
+        .answer_buttons2 {
+            background-color: rgb(241, 194, 50);
+            color: white;
+            border: none;
+            text-align: center; 
+            font-size: 30px; 
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .answer_buttons2:hover {background-color: rgb(232, 184, 10)}
+        .answer_buttons2:active { 
+            background-color: rgb(232, 184, 10);
+            transform: translateY(4px);
+        }
+
+        /*answer button 3 -- red */
+        .answer_buttons3 {
+            background-color: rgb(204, 0, 0);
+            color: white;
+            border: none;
+            text-align: center; 
+            font-size: 30px; 
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .answer_buttons3:hover {background-color: rgb(160, 9, 9)}
+        .answer_buttons3:active { 
+            background-color: rgb(160, 9, 9);
+            transform: translateY(4px);
+        }
+
+
+        /*answer button 4 -- green */
+        .answer_buttons4 {
+            background-color: rgb(106, 168, 79);
+            color: white;
+            border: none;
+            text-align: center; 
+            font-size: 30px; 
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .answer_buttons4:hover {background-color: rgb(68, 148, 33)}
+        .answer_buttons4:active { 
+            background-color: rgb(68, 148, 33);
+            transform: translateY(4px);
+        }
+    
+    </style>
+
+  <body>
+    <div class="menu">
+        <div style="flex-grow: 8; font-size: 50">B1NARY RACER ⪢⪢⪢</div>
+        <div style="flex-grow: 1; font-size: 20">Leaderboard</div>
+        <div style="flex-grow: 1; font-size: 20">Back to Escape Room</div>
+    </div>
+    
+    <!-- parent container -- flexbox -->
+    <div class="img_container">
+      <img src="https://user-images.githubusercontent.com/111466888/229846875-9f4a1691-6b9e-4d96-ae85-5c799719e2e2.jpeg">
+      <div class="button_container">
+        <button class="answer_buttons1">answer1</button>
+        <button class="answer_buttons2">answer2</button>
+        <button class="answer_buttons3">answer3</button>
+        <button class="answer_buttons4">answer4</button>
+      </div>
+      <button onclick="createProgressbar()">Start</button>
+      <div id='progressbar'></div>
+  </div>
+  </body>
+  <script>
+  //progress bar script --> create + time settings
+
+  function createProgressbar(id, duration, callback) {
+    var progressbar = document.getElementById(id);
+    progressbar.className = 'progressbar';
+    var progressbarinner = document.createElement('div');
+    progressbarinner.className = 'inner';
+    progressbarinner.style.animationDuration = duration;
+    if (typeof(callback) === 'function') {
+      progressbarinner.addEventListener('animationend', callback);
+    }
+    progressbar.appendChild(progressbarinner);
+    progressbarinner.style.animationPlayState = 'running';
+  }
+  addEventListener('load', function() {
+    const container = document.getElementById("game-container");
+    createProgressbar('progressbar', '2s', function() {
+      // add jquery
+      container.classList.add("frozen");
+      document.getElementById("popup-image").style.display = "block";
+      // or here
+    });
+  });
+  </script>
+
+</html>

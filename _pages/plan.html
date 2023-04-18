@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+      html {
+        background-color: rgb(65, 63, 65);
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .top-container {
+        width: 100%;
+        text-align: left;
+        font-size: 30px;
+        font-family: 'Orbitron', sans-serif;
+        margin-top: 30px;
+        color: white;
+      }
+      
+      .questions-completed{
+        display: inline-block;
+        width: 50%;
+        font-size: 20px;
+        font-family: 'Orbitron', sans-serif;
+        margin-top: 25px;
+        color: white;
+        text-align: left;
+      }
+
+      .time-elapsed {
+        display: inline-block;
+        position: relative;
+        left: 30%;
+        padding: 0px;
+        font-size: 20px;
+        font-family: 'Orbitron', sans-serif;
+        margin-top: 25px;
+        color: white;
+        text-align: right;
+        vertical-align: right;
+      }
+
+      .progressbar {
+        width: 80%;
+        margin-top: 50px;
+        border-radius: 6px;
+      }
+
+      .progressbar .inner {
+        height: 15px;
+        animation: progressbar-countdown 5s forwards;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-play-state: paused;
+        animation-timing-function: linear;
+        border-radius: 6px;
+        width: 0%;
+        background-color: #F00;
+      }
+      
+      @keyframes progressbar-countdown {
+        0% {
+          width: 0%;
+          background-color: #F00;
+        }
+        10% {
+          width: 10%;
+          background-color: #E91E23;
+        }
+        20% {
+          width: 20%;
+          background-color: #DB313A;
+        }
+        30% {
+          width: 30%;
+          background-color: #D1404C;
+        }
+        40% {
+          width: 40%;
+          background-color: #C05768;
+        }
+        50% {
+          width: 50%;
+          background-color: #B5667A;
+        }
+        60% {
+          width: 60%;
+          background-color: #A77990;
+        }
+        70% {
+          width: 70%;
+          background-color: #9197B3;
+        }
+        80% {
+          width: 80%;
+          background-color: #7DB3D4;
+        }
+        90% {
+          width: 90%;
+          background-color: #66D3FA;
+        }
+        100% {
+            width: 100%;
+            background-color: #56cef9;
+          }
+      }
+      
+      .image-container {
+        margin-top: 30px;
+        position: relative;
+        width: 100%;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        margin-top: 30px;
+        width: 400px;
+        margin-left: 850px;
+      }
+
+      .answer-button1 {
+        background-color: rgb(11,83,148);
+        color: white;
+        border: none;
+        text-align: center; 
+        font-size: 30px; 
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .answer-button1:hover {
+        background-color: rgb(7, 59, 105);
+      }
+
+      .answer-button1:active {
+        background-color: rgb(7, 59, 105);
+        transform: translateY(4px);
+      }
+
+
+      .answer-button2 {
+        background-color: rgb(241, 194, 50);
+        color: white;
+        border: none;
+        text-align: center; 
+        font-size: 30px; 
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      .answer-button2:hover {
+        background-color: rgb(232, 184, 10);
+      }
+
+      .answer-button2:active {
+        background-color: rgb(232, 184, 10);
+        transform: translateY(4px);
+      }
+
+      .answer-button3 {
+        background-color: rgb(204, 0, 0);
+        color: white;
+        border: none;
+        text-align: center; 
+        font-size: 30px; 
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .answer-button3:hover {
+        background-color: rgb(160, 9, 9);
+      }
+
+      .answer-button3:active {
+        background-color: rgb(160, 9, 9);
+        transform: translateY(4px);
+      }
+
+      .answer-button4 {
+        background-color: rgb(106, 168, 79);
+        color: white;
+        border: none;
+        text-align: center; 
+        font-size: 30px; 
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      .answer-button4:hover {
+        background-color: rgb(68, 148, 33);
+      }
+
+      .answer-button4:active {
+        background-color: rgb(68, 148, 33);
+        transform: translateY(4px);
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #000;
+        color: white;
+        height: 75px;
+        padding: 0 30px;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .menu-title {
+        font-size: 50px;
+        font-family: 'Orbitron', sans-serif;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .menu-button {
+        font-size: 20px;
+        font-family: 'Orbitron', sans-serif;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .car1 {
+        width: 200px;
+        height: auto;
+        margin-top: 0px;
+        position: absolute;
+        animation: moveRight 5s linear infinite;
+        animation-play-state: paused;
+        z-index: 2; 
+      }
+      
+      
+      @keyframes moveRight {
+        from {
+          left: 0%;
+        }
+        to {
+          left: 100%;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="menu">
+        <div class="menu-title">B1NARY RACER ⪢⪢⪢</div>
+        <div class="menu-button">Leaderboard</div>
+        <div class="menu-button">Back to Escape Room</div>
+      </div>
+      <div class="top-container">
+        <div class="questions-completed">QUESTIONS COMPLETED: 2/10</div>
+        <div class="time-elapsed">TIME: 00:45</div>
+      </div>
+      <div class="progressbar">
+        <div class="inner"></div>
+      </div>
+      <div class="image-container">
+        <img src="https://user-images.githubusercontent.com/111466888/229846875-9f4a1691-6b9e-4d96-ae85-5c799719e2e2.jpeg" alt="road">
+        <img class="car1" src="https://user-images.githubusercontent.com/111466888/232831777-139bd1ff-eab8-4503-ab56-1c4b37dd58ad.png">
+      </div>
+      <div class="button-container">
+        <button class="answer-button1" id="answer-button1" onclick="barMove()">answer1</button>
+        <button class="answer-button2">answer2</button>
+        <button class="answer-button3">answer3</button>
+        <button class="answer-button4">answer4</button>
+      </div>
+      <div id='progressbar'></div>
+  </div>
+  </body>
+  <script>
+      const progressBar = document.querySelector(".progressbar .inner");
+      const car1 = document.querySelector(".car1");
+      const startButton = document.querySelector("#start-button");
+      const button1 = document.querySelector("#answer-button1");
+      let keyframeIndex = 0;
+      function barMove() {
+        keyframeIndex = keyframeIndex + 1;
+        const animationDuration = 5
+        progressBar.style.animation = `progressbar-countdown ${animationDuration}s 1 forwards`;
+        progressBar.style.animationPlayState = "running";
+        car1.style.animationName = "moveRight";
+        car1.style.animationPlayState = "running";
+
+      }
+  </script>
+    </html>
