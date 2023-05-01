@@ -82,7 +82,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      21 min read
     
 </span></p>
 
@@ -130,7 +130,7 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h1><p>When building an application that requires users to create accounts or sign in, handling data related to users is crucial. This data can include things like user profiles, preferences, and activity logs, which can be used to <strong>_</strong> the user experience and <strong>_</strong> the application's performance.</p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h1><p>When building an application that requires users to create accounts or sign in, handling data related to users is crucial. This data can include things like user profiles, preferences, and activity logs, which can be used to <code>personlize</code> the user experience and <code>improve</code> the application's performance.</p>
 <p>By learning how to handle data related to users effectively and efficiently, you'll be equipped with the skills and knowledge needed to build helpful applications that meet the needs of your users.</p>
 <p><strong>PLEASE DON'T OPEN THE POPCORN HACKS, WE WILL OPEN THEM DURING THE PRESENTATION</strong></p>
 
@@ -1203,6 +1203,210 @@ Using the same table, find a new .jpg image and add its image data to the databa
 <li>Extra Credit: Connect your backend database to a visible frontend! Screenshots of displayed data is fine. (+0.05)</li>
 </ul>
 
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;database.db&#39;</span><span class="p">)</span>
+
+<span class="c1">#making table using SQL commands </span>
+<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE IF NOT EXISTS image_info (</span>
+<span class="s1">    id INTEGER PRIMARY KEY AUTOINCREMENT,</span>
+<span class="s1">    name TEXT,</span>
+<span class="s1">    date_taken TEXT,</span>
+<span class="s1">    location TEXT,</span>
+<span class="s1">    image BLOB</span>
+<span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jpg</span><span class="p">:</span>
+    <span class="n">image_data</span> <span class="o">=</span> <span class="n">jpg</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1">#initialize</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO image_info (name, date_taken, location, image) VALUES (?, ?, ?, ?)&quot;</span><span class="p">,</span> 
+             <span class="p">(</span><span class="s1">&#39;Sunset&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-04-30&#39;</span><span class="p">,</span> <span class="s1">&#39;Internet&#39;</span><span class="p">,</span> <span class="n">image_data</span><span class="p">))</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c1"># Retrieve the image data and information from the database</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT name, date_taken, location, image FROM image_info WHERE id=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+<span class="c1"># Display the image and information</span>
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date Taken:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Location:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Close the connection</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name: image
+Date Taken: 2023-04-30
+Location: New York City
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="c1"># Function for creating a new image and information in the database</span>
+<span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;database.db&#39;</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">image_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO image_info (name, date_taken, location, image) VALUES (?, ?, ?, ?)&quot;</span><span class="p">,</span> 
+                     <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_data</span><span class="p">))</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">image_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;database.db&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">image_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE image_info SET name=?, date_taken=?, location=?, image=? WHERE id=?&quot;</span><span class="p">,</span> 
+                     <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_data</span><span class="p">,</span> <span class="n">image_id</span><span class="p">))</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">image_id</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;database.db&#39;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT name, date_taken, location, image FROM image_info WHERE id=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">image_id</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Image with ID </span><span class="si">{}</span><span class="s2"> not found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_id</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_data</span> <span class="o">=</span> <span class="n">result</span>
+    
+    <span class="n">image_data</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Image ID:&quot;</span><span class="p">,</span> <span class="n">image_id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date taken:&quot;</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Location:&quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">image_id</span><span class="p">):</span>
+
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;database.db&#39;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT COUNT(*) FROM image_info WHERE id=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">image_id</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Image with ID </span><span class="si">{}</span><span class="s2"> not found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_id</span><span class="p">))</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DELETE FROM image_info WHERE id=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">image_id</span><span class="p">,))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Image with ID </span><span class="si">{}</span><span class="s2"> has been deleted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_id</span><span class="p">))</span>
+
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+
+<span class="c1">### note: image must be saved beforehand in proper image path </span>
+<span class="k">def</span> <span class="nf">menu</span><span class="p">():</span>
+   <span class="n">operation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter: (C)reate (R)ead (U)pdate or (D)elete&quot;</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+       <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter image name: &quot;</span><span class="p">)</span>
+       <span class="n">date_taken</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter date taken (YYYY-MM-DD): &quot;</span><span class="p">)</span>
+       <span class="n">location</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter location: &quot;</span><span class="p">)</span>
+       <span class="n">image_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter image file path: &quot;</span><span class="p">)</span>
+       <span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_path</span><span class="p">)</span>
+   <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># Escape Key</span>
+       <span class="k">return</span>
+   <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span>
+       <span class="n">image_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the ID of the image to display: &quot;</span><span class="p">)</span>
+       <span class="n">read</span><span class="p">(</span><span class="n">image_id</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span>
+       <span class="n">image_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the ID of the image to update: &quot;</span><span class="p">)</span>
+       <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter new image name: &quot;</span><span class="p">)</span>
+       <span class="n">date_taken</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter new date taken (YYYY-MM-DD): &quot;</span><span class="p">)</span>
+       <span class="n">location</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter new location: &quot;</span><span class="p">)</span>
+       <span class="n">image_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter new image file path: &quot;</span><span class="p">)</span>
+       <span class="n">update</span><span class="p">(</span><span class="n">image_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">date_taken</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">image_path</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span>
+       <span class="n">image_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the ID of the image to delete: &quot;</span><span class="p">)</span>
+       <span class="n">delete</span><span class="p">(</span><span class="n">image_id</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please enter c, r, u, or d&quot;</span><span class="p">)</span>
+        
+<span class="n">menu</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Image ID: 3
+Name: grass
+Date taken: 2023-04-30
+Location: noclue
+Please enter c, r, u, or d
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Testing-create-w/-grass-image:">Testing create w/ grass image:<a class="anchor-link" href="#Testing-create-w/-grass-image:"> </a></h3><p><img src="https://user-images.githubusercontent.com/111466888/235406198-25535c90-c538-45c7-b7ab-d954564c994c.png" alt="" /></p>
+<h3 id="I-also-tested-the-read-method-w/-the-grass-image,-however-Mac-opens-the-image-in-a-new-window-so-it-doesn't-show-up-on-output">I also tested the read method w/ the grass image, however Mac opens the image in a new window so it doesn't show up on output<a class="anchor-link" href="#I-also-tested-the-read-method-w/-the-grass-image,-however-Mac-opens-the-image-in-a-new-window-so-it-doesn't-show-up-on-output"> </a></h3>
 </div>
 </div>
 </div>
