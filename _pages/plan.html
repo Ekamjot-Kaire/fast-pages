@@ -257,7 +257,21 @@
         animation-play-state: paused;
         z-index: 2; 
       }
+
+      .road_lines { 
+        position: absolute;
+        top: 0;
+        width: 1200px;
+      }
       
+      @keyframes moveRightroad {
+        from {
+          transform: translateX(-20px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
       
       @keyframes moveRight {
         from {
@@ -292,6 +306,7 @@
       </div>
       <div class="image-container">
         <img src="https://user-images.githubusercontent.com/111466888/233432935-cffdfbb6-4aad-47c4-8e4d-bb9eedb85a90.png" alt="road">
+        <img class="road_lines" id="road_lines" src="https://user-images.githubusercontent.com/111466888/235482489-b33d7f26-51cc-45af-ae5e-3abf736f7688.png" alt="lines">
         <img class="car1" src="https://user-images.githubusercontent.com/111466888/232831777-139bd1ff-eab8-4503-ab56-1c4b37dd58ad.png">
       </div>
       <div class="button-container">
@@ -308,6 +323,7 @@
       const car1 = document.querySelector(".car1");
       const startButton = document.querySelector("#start-button");
       const button1 = document.querySelector("#answer-button1");
+      const roadLines = document.querySelector(".road_lines");
 
       let seconds = 0;
       let mins = 0;
@@ -331,8 +347,6 @@
           }, 500); 
           keyframeIndex++;
         }
-        car1.style.animationName = "moveRight";
-        car1.style.animationPlayState = "running";
         clearInterval(Interval);
         Interval = setInterval(startTimer, 10);
         addQuestion();
@@ -342,6 +356,16 @@
             appendQ.innerHTML = questions;
           }
         }
+      }
+
+      window.onload = function() {
+        car1.style.animationName = "moveRight";
+        car1.style.animationPlayState = "running";
+        setTimeout(function() {
+          car1.style.animationPlayState = "paused";
+        }, 500);
+        roadLines.style.left = "2px";        
+        roadLines.style.animation = "moveRightroad 0.4s linear infinite";
       }
 
       function startTimer () {
