@@ -34,16 +34,31 @@
         vertical-align: left;
       }
 
+      .questions-given {
+        display: inline-block;
+        position: relative;
+        font-size: 20px;
+        font-family: 'Orbitron', sans-serif;
+        margin-top: -20px;
+        color: white;
+        vertical-align: left;
+      }
+
+      .time-container { 
+        display: float; 
+        float: right;
+        margin-top: 30px;
+        width: 200px;
+      }
+
       .time-elapsed {
         display: inline-block;
         position: relative;
-        left: 60%;
         padding: 0px;
         font-size: 20px;
         font-family: 'Orbitron', sans-serif;
         margin-top: -10px;
         color: white;
-        text-align: right;
         vertical-align: right;
       }
 
@@ -121,7 +136,8 @@
 
       img {
         display: block;
-        width: 100%;
+        top: 20px;
+        width: 1420px;
       }
 
       .button-container {
@@ -251,36 +267,19 @@
       .car1 {
         width: 200px;
         height: auto;
-        top: -40px;
+        top: 80px;
         position: absolute;
         animation: moveRight 5s linear infinite;
         animation-play-state: paused;
         z-index: 2; 
       }
 
-      .road_lines { 
+      .road-lines { 
         position: absolute;
-        top: 0;
+        margin-top: 5px;
         width: 1200px;
       }
       
-      @keyframes moveRightroad {
-        from {
-          transform: translateX(-20px);
-        }
-        to {
-          transform: translateX(0);
-        }
-      }
-      
-      @keyframes moveRight {
-        from {
-          left: 0%;
-        }
-        to {
-          left: 100%;
-        }
-      }
 
     </style>
   </head>
@@ -296,9 +295,11 @@
           <div class="questions-completed">QUESTIONS COMPLETED: </div>
           <div id="questions" class="questions-completed"> 0</div>
           <div class="questions-completed">/ 10</div>
-          <div class="time-elapsed">TIME : </div> 
-          <div class="time-elapsed" id="seconds">00 :</div> 
-          <div class="time-elapsed" id="mins">00</div>
+          <div class="time-container">
+            <div class="time-elapsed">TIME : </div> 
+            <div class="time-elapsed" id="seconds">00 :</div> 
+            <div class="time-elapsed" id="mins">00</div>
+          </div>
         </p>
       </div>
       <div class="progressbar">
@@ -306,14 +307,17 @@
       </div>
       <div class="image-container">
         <img src="https://user-images.githubusercontent.com/111466888/233432935-cffdfbb6-4aad-47c4-8e4d-bb9eedb85a90.png" alt="road">
-        <img class="road_lines" id="road_lines" src="https://user-images.githubusercontent.com/111466888/235482489-b33d7f26-51cc-45af-ae5e-3abf736f7688.png" alt="lines">
+        <img class="road-lines" id="road_lines" src="https://user-images.githubusercontent.com/111466888/235482489-b33d7f26-51cc-45af-ae5e-3abf736f7688.png" alt="lines">
         <img class="car1" src="https://user-images.githubusercontent.com/111466888/232831777-139bd1ff-eab8-4503-ab56-1c4b37dd58ad.png">
       </div>
-      <div class="button-container">
-        <button class="answer-button1" id="answer-button1" onclick="barMove()">answer1</button>
-        <button class="answer-button2">answer2</button>
-        <button class="answer-button3">answer3</button>
-        <button class="answer-button4">answer4</button>
+      <div class="bottom-UI">
+        <div class="questions-given" id="questions-container">QUESTIONS HERE</div>
+        <div class="button-container">
+          <button class="answer-button1" id="answer-button1" onclick="barMove()">answer1</button>
+          <button class="answer-button2">answer2</button>
+          <button class="answer-button3">answer3</button>
+          <button class="answer-button4">answer4</button>
+        </div>
       </div>
       <div id='progressbar'></div>
   </div>
@@ -332,6 +336,7 @@
       let Interval;
       const appendSeconds = document.getElementById("seconds");
       const appendQ = document.getElementById("questions");
+      const newQuestion = document.getElementById('questions-container')
 
       let keyframeIndex = 0;
       function barMove() {
@@ -364,8 +369,6 @@
         setTimeout(function() {
           car1.style.animationPlayState = "paused";
         }, 500);
-        roadLines.style.left = "2px";        
-        roadLines.style.animation = "moveRightroad 0.4s linear infinite";
       }
 
       function startTimer () {
